@@ -96,4 +96,8 @@ dependencies {
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     testImplementation("org.mockito:mockito-inline:4.0.0")
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    //add observer as state
+    implementation "androidx.compose.runtime:runtime-livedata:1.1.1"
+
 }
