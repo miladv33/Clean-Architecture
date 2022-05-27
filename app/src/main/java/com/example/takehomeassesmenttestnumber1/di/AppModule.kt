@@ -4,6 +4,7 @@ import com.example.takehomeassesmenttestnumber1.di.annotation.RetrofitQuotableSe
 import com.example.takehomeassesmenttestnumber1.repository.RandomQuoteRepository
 import com.example.takehomeassesmenttestnumber1.service.RandomQuoteApi
 import com.example.takehomeassesmenttestnumber1.service.adapter.ResultCallAdapterFactory
+import com.example.takehomeassesmenttestnumber1.usecase.MainUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,5 +50,15 @@ object AppModule {
         return RandomQuoteRepository(randomQuoteApi)
     }
 
+    /**
+     *
+     * @param randomQuoteRepository RandomQuoteRepository
+     * @return MainShowCase
+     */
+    @Provides
+    @Singleton
+    fun provideMainShowCase(randomQuoteRepository: RandomQuoteRepository): MainUseCase {
+        return MainUseCase(randomQuoteRepository)
+    }
 
 }
