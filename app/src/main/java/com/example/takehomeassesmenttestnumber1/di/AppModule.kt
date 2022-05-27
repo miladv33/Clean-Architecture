@@ -1,6 +1,7 @@
 package com.example.takehomeassesmenttestnumber1.di
 
 import com.example.takehomeassesmenttestnumber1.di.annotation.RetrofitQuotableServer
+import com.example.takehomeassesmenttestnumber1.repository.RandomQuoteRepository
 import com.example.takehomeassesmenttestnumber1.service.RandomQuoteApi
 import com.example.takehomeassesmenttestnumber1.service.adapter.ResultCallAdapterFactory
 import dagger.Module
@@ -36,5 +37,17 @@ object AppModule {
     fun provideRandomQuoteApi(@RetrofitQuotableServer retrofit: Retrofit): RandomQuoteApi {
         return retrofit.create(RandomQuoteApi::class.java)
     }
+
+    /**
+     *
+     * @param randomQuoteApi RandomQuoteApi
+     * @return RandomQuoteRepository
+     */
+    @Provides
+    @Singleton
+    fun provideRandomQuoteRepository(randomQuoteApi: RandomQuoteApi): RandomQuoteRepository {
+        return RandomQuoteRepository(randomQuoteApi)
+    }
+
 
 }
