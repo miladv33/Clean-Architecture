@@ -1,7 +1,7 @@
-package com.example.takehomeassesmenttestnumber1.repository
+package com.example.takehomeassesmenttestnumber1.data.repository
 
-import com.example.takehomeassesmenttestnumber1.model.RandomQuote
-import com.example.takehomeassesmenttestnumber1.service.RandomQuoteApi
+import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
+import com.example.takehomeassesmenttestnumber1.remote.service.RandomQuoteApi
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent

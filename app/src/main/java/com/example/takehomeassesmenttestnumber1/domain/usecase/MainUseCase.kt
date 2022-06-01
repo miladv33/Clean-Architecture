@@ -1,6 +1,6 @@
-package com.example.takehomeassesmenttestnumber1.usecase
+package com.example.takehomeassesmenttestnumber1.domain.usecase
 
-import com.example.takehomeassesmenttestnumber1.repository.RandomQuoteRepository
+import com.example.takehomeassesmenttestnumber1.data.repository.RandomQuoteRepository
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent

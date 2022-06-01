@@ -1,11 +1,11 @@
-package com.example.takehomeassesmenttestnumber1.viewmodel
+package com.example.takehomeassesmenttestnumber1.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.takehomeassesmenttestnumber1.model.RandomQuote
-import com.example.takehomeassesmenttestnumber1.usecase.MainUseCase
+import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
+import com.example.takehomeassesmenttestnumber1.domain.usecase.MainUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

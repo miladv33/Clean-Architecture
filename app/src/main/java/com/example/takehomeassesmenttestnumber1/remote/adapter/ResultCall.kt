@@ -1,4 +1,4 @@
-package com.example.takehomeassesmenttestnumber1.service.adapter
+package com.example.takehomeassesmenttestnumber1.remote.adapter
 
 import okhttp3.Request
 import okio.Timeout

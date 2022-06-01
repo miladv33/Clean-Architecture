@@ -1,4 +1,4 @@
-package com.example.takehomeassesmenttestnumber1.model
+package com.example.takehomeassesmenttestnumber1.data.model
 
 /**
  *

@@ -1,10 +1,10 @@
 package com.example.takehomeassesmenttestnumber1.di
 
 import com.example.takehomeassesmenttestnumber1.di.annotation.RetrofitQuotableServer
-import com.example.takehomeassesmenttestnumber1.repository.RandomQuoteRepository
-import com.example.takehomeassesmenttestnumber1.service.RandomQuoteApi
-import com.example.takehomeassesmenttestnumber1.service.adapter.ResultCallAdapterFactory
-import com.example.takehomeassesmenttestnumber1.usecase.MainUseCase
+import com.example.takehomeassesmenttestnumber1.data.repository.RandomQuoteRepository
+import com.example.takehomeassesmenttestnumber1.remote.service.RandomQuoteApi
+import com.example.takehomeassesmenttestnumber1.remote.adapter.ResultCallAdapterFactory
+import com.example.takehomeassesmenttestnumber1.domain.usecase.MainUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

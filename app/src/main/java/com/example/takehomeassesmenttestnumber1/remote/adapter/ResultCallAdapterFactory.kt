@@ -1,4 +1,4 @@
-package com.example.takehomeassesmenttestnumber1.service.adapter
+package com.example.takehomeassesmenttestnumber1.remote.adapter
 
 import retrofit2.Call
 import retrofit2.CallAdapter

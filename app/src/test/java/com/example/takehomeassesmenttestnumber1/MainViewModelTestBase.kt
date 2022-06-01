@@ -1,11 +1,11 @@
 package com.example.takehomeassesmenttestnumber1
 
 import com.example.takehomeassesmenttestnumber1.di.AppModule
-import com.example.takehomeassesmenttestnumber1.model.RandomQuote
-import com.example.takehomeassesmenttestnumber1.repository.RandomQuoteRepository
-import com.example.takehomeassesmenttestnumber1.service.RandomQuoteApi
-import com.example.takehomeassesmenttestnumber1.usecase.MainUseCase
-import com.example.takehomeassesmenttestnumber1.viewmodel.MainViewModel
+import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
+import com.example.takehomeassesmenttestnumber1.data.repository.RandomQuoteRepository
+import com.example.takehomeassesmenttestnumber1.remote.service.RandomQuoteApi
+import com.example.takehomeassesmenttestnumber1.domain.usecase.MainUseCase
+import com.example.takehomeassesmenttestnumber1.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.runner.RunWith
 import org.mockito.Mockito
