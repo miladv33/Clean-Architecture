@@ -100,4 +100,14 @@ dependencies {
     //add observer as state
     implementation "androidx.compose.runtime:runtime-livedata:$compose_runtime_version"
 
+    //room
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    //work manager
+    implementation "androidx.work:work-runtime-ktx:$workVersion"
+    androidTestImplementation "androidx.work:work-testing:$workVersion"
+
+
 }

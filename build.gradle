@@ -19,6 +19,9 @@ buildscript {
         mockito_android_version = '2.24.5'
         mockito_inline_version = '4.0.0'
         androidx_arch_core_testing_version = '2.1.0'
+        roomVersion = '2.4.2'
+        workVersion = '2.7.1'
+
     }
     dependencies {
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'

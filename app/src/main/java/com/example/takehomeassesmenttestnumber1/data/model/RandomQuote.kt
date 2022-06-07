@@ -1,5 +1,9 @@
 package com.example.takehomeassesmenttestnumber1.data.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  *
  * @property _id String
@@ -12,6 +16,7 @@ package com.example.takehomeassesmenttestnumber1.data.model
  * @property tags List<String>
  * @constructor
  */
+@Entity(tableName = "randomQuote")
 data class RandomQuote(
     val _id: String,
     val author: String,
@@ -21,4 +26,6 @@ data class RandomQuote(
     val dateModified: String,
     val length: Int = -1,
     val tags: List<String>,
-)
+    @PrimaryKey @ColumnInfo(name = "id")
+    val id: Int
+    )
