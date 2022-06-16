@@ -28,7 +28,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class DatabaseModule {
+object DatabaseModule {
 
     @Singleton
     @Provides
@@ -37,7 +37,7 @@ class DatabaseModule {
     }
 
     @Provides
-    fun providePlantDao(appDatabase: AppDatabase): RandomQuoteDao {
+    fun provideRandomQuoteDao(appDatabase: AppDatabase): RandomQuoteDao {
         return appDatabase.RandomQuoteDao()
     }
 }

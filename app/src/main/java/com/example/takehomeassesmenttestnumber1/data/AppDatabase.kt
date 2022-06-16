@@ -27,6 +27,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.example.takehomeassesmenttestnumber1.data.converter.StringListConverter
 import com.example.takehomeassesmenttestnumber1.data.dao.RandomQuoteDao
+import com.example.takehomeassesmenttestnumber1.data.dto.RandomQuoteDTO
 import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import com.example.takehomeassesmenttestnumber1.utilities.DATABASE_NAME
 import com.example.takehomeassesmenttestnumber1.utilities.PLANT_DATA_FILENAME
@@ -36,7 +37,7 @@ import com.example.takehomeassesmenttestnumber1.workers.SeedDatabaseWorker.Compa
 /**
  * The Room database for this app
  */
-@Database(entities = [RandomQuote::class], version = 1, exportSchema = false)
+@Database(entities = [RandomQuoteDTO::class], version = 1, exportSchema = false)
 @TypeConverters(StringListConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun RandomQuoteDao(): RandomQuoteDao

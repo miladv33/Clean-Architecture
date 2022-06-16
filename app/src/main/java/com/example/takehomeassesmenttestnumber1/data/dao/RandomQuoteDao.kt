@@ -20,6 +20,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.takehomeassesmenttestnumber1.data.dto.RandomQuoteDTO
 import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import kotlinx.coroutines.flow.Flow
 
@@ -28,12 +29,12 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface RandomQuoteDao {
-    @Query("SELECT * FROM randomQuote ORDER BY dateAdded")
-    fun getRandomQuotes(): Flow<List<RandomQuote>>
+    @Query("SELECT * FROM randomQuote ORDER BY dateAdded LIMIT 1")
+    fun getRandomQuotes(): RandomQuoteDTO
 
     @Query("SELECT * FROM randomQuote WHERE id = :plantId")
-    fun getRandomQuotes(plantId: String): Flow<RandomQuote>
+    fun getRandomQuotes(plantId: String): RandomQuoteDTO
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<RandomQuote>)
+    suspend fun insertAll(plants: List<RandomQuoteDTO>)
 }

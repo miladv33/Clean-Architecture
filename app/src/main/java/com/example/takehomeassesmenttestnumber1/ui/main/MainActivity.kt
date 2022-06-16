@@ -29,11 +29,12 @@ class MainActivity : ComponentActivity() {
         mainViewModel.randomQuoteLiveData.observe(this) {
             Log.i("MiladTest", "onCreate: $it")
         }
+//        mainViewModel.getDashboardDataCombined()
         setContent {
             dialog(mainViewModel)
             // A surface container using the 'background' color from the theme
             Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-//                    Greeting(mainViewModel)
+                Greeting(mainViewModel)
             }
         }
     }
@@ -46,6 +47,7 @@ fun Greeting(viewModel: MainViewModel) {
         Text(text = " From ${quote.value?.author ?: ""}: ")
         Text(modifier = Modifier.padding(start = 15.dp), text = quote.value?.content ?: "")
         Button(modifier = Modifier.padding(top = 15.dp), onClick = {
+
             viewModel.getQuotesFlow()
         }) {
             Text(text = "Another Quote")

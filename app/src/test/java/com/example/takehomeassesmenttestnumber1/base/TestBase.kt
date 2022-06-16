@@ -1,4 +1,4 @@
-package com.example.takehomeassesmenttestnumber1
+package com.example.takehomeassesmenttestnumber1.base
 
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.Dispatchers

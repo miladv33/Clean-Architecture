@@ -18,7 +18,7 @@ class MainUseCase @Inject constructor(
      * @return Flow<RandomQuote>
      */
     fun executeQuotesFlow() = flow {
+        emit(randomQuoteRepository.getOfflineRandomFlow())
         emit(randomQuoteRepository.getRandomFlow())
     }
-
 }

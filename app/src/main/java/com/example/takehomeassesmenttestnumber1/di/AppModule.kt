@@ -1,5 +1,7 @@
 package com.example.takehomeassesmenttestnumber1.di
 
+import com.example.takehomeassesmenttestnumber1.data.dao.RandomQuoteDao
+import com.example.takehomeassesmenttestnumber1.data.mapper.RandomQuoteMapper
 import com.example.takehomeassesmenttestnumber1.di.annotation.RetrofitQuotableServer
 import com.example.takehomeassesmenttestnumber1.data.repository.RandomQuoteRepository
 import com.example.takehomeassesmenttestnumber1.remote.service.RandomQuoteApi
@@ -46,8 +48,10 @@ object AppModule {
      */
     @Provides
     @Singleton
-    fun provideRandomQuoteRepository(randomQuoteApi: RandomQuoteApi): RandomQuoteRepository {
-        return RandomQuoteRepository(randomQuoteApi)
+    fun provideRandomQuoteRepository(randomQuoteApi: RandomQuoteApi,
+                                     randomQuoteDao: RandomQuoteDao,
+                                     randomQuoteMapper: RandomQuoteMapper): RandomQuoteRepository {
+        return RandomQuoteRepository(randomQuoteApi, randomQuoteDao,randomQuoteMapper)
     }
 
     /**

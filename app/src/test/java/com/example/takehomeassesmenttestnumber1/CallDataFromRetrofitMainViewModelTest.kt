@@ -1,13 +1,20 @@
 package com.example.takehomeassesmenttestnumber1
 
 import app.cash.turbine.test
+import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase
+import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainShowCase
+import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainViewModel
+import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.testDataRandomQuote
+import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteApi
+import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteRepository
+import com.example.takehomeassesmenttestnumber1.base.TestBase
 import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import com.google.common.truth.Truth.assertThat
 import com.jraska.livedata.TestObserver
 import org.junit.Test
 import org.mockito.Mockito.*
 
-class CallDataFromRetrofitMainViewModelTest : MainViewModelTestBase() {
+class CallDataFromRetrofitMainViewModelTest : TestBase() {
 
 
     @Test

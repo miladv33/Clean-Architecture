@@ -21,7 +21,7 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.takehomeassesmenttestnumber1.data.AppDatabase
-import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
+import com.example.takehomeassesmenttestnumber1.data.dto.RandomQuoteDTO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
@@ -38,8 +38,8 @@ class SeedDatabaseWorker(
             if (filename != null) {
                 applicationContext.assets.open(filename).use { inputStream ->
                     JsonReader(inputStream.reader()).use { jsonReader ->
-                        val plantType = object : TypeToken<List<RandomQuote>>() {}.type
-                        val plantList: List<RandomQuote> = Gson().fromJson(jsonReader, plantType)
+                        val plantType = object : TypeToken<List<RandomQuoteDTO>>() {}.type
+                        val plantList: List<RandomQuoteDTO> = Gson().fromJson(jsonReader, plantType)
 
                         val database = AppDatabase.getInstance(applicationContext)
                         database.RandomQuoteDao().insertAll(plantList)
