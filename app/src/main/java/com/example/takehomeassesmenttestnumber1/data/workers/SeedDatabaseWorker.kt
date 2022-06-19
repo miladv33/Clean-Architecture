@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.takehomeassesmenttestnumber1.workers
+package com.example.takehomeassesmenttestnumber1.data.workers
 
 import android.content.Context
 import android.util.Log

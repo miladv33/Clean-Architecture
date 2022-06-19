@@ -1,5 +1,7 @@
 package com.example.takehomeassesmenttestnumber1.remote.adapter
 
+import com.example.takehomeassesmenttestnumber1.data.mapper.Mapper
+import com.example.takehomeassesmenttestnumber1.data.mapper.RandomQuoteMapper
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit

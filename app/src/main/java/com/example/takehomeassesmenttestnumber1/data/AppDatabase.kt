@@ -28,11 +28,10 @@ import androidx.work.workDataOf
 import com.example.takehomeassesmenttestnumber1.data.converter.StringListConverter
 import com.example.takehomeassesmenttestnumber1.data.dao.RandomQuoteDao
 import com.example.takehomeassesmenttestnumber1.data.dto.RandomQuoteDTO
-import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import com.example.takehomeassesmenttestnumber1.utilities.DATABASE_NAME
 import com.example.takehomeassesmenttestnumber1.utilities.PLANT_DATA_FILENAME
-import com.example.takehomeassesmenttestnumber1.workers.SeedDatabaseWorker
-import com.example.takehomeassesmenttestnumber1.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
+import com.example.takehomeassesmenttestnumber1.data.workers.SeedDatabaseWorker
+import com.example.takehomeassesmenttestnumber1.data.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 
 /**
  * The Room database for this app

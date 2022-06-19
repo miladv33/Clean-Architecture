@@ -16,7 +16,10 @@ data class Product(
         }
     }
 }
+//عhttps://proandroiddev.com/the-real-repository-pattern-in-android-efba8662b754
 fun test() {
+    var product = Product("", price = Product.Price(100.0,100.0), name = "", isFavourite = false)
+
     val price = Product.Price(100.0, 100.0)
     Product.Price.EMPTY
 }
