@@ -13,7 +13,7 @@ import org.mockito.Mockito.verify
 class CallDataFromRoomDataBaseToViewModel : TestBase() {
 
     @Test
-    fun `flow of data is working`() {
+    fun `flow of data is working`() =runJob{
         mainViewModel.getQuotesFlow()
         verify(mainShowCase).executeQuotesFlow()
         verify(randomQuoteRepository).getOfflineRandomFlow()
