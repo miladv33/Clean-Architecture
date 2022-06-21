@@ -1,7 +1,6 @@
 package com.example.takehomeassesmenttestnumber1
 
 import app.cash.turbine.test
-import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainShowCase
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainViewModel
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.testDataRandomQuote
@@ -26,7 +25,7 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
         mainViewModel.getQuotesFlow()
         //assert
         verify(mainShowCase).executeQuotesFlow()
-        verify(randomQuoteRepository).getRandomFlow()
+        verify(randomQuoteRepository).getFromServer()
         verify(randomQuoteApi).getRandomQuote()
     }
 
@@ -36,7 +35,7 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
         val result = Result.success(testDataRandomQuote)
         doReturn(result).`when`(randomQuoteApi).getRandomQuote()
         //act
-        val randomFlow = randomQuoteRepository.getRandomFlow()
+        val randomFlow = randomQuoteRepository.getFromServer()
         //assert
         assertThat(randomFlow.isSuccess).isEqualTo(true)
         assertThat(randomFlow.getOrNull()).isEqualTo(testDataRandomQuote)

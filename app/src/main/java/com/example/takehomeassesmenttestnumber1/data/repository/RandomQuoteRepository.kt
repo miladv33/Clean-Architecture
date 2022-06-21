@@ -18,11 +18,12 @@ class RandomQuoteRepository @Inject constructor(
     private var randomQuoteDao: RandomQuoteDao,
     private var randomQuoteMapper: RandomQuoteMapper
 ) : BaseRepository<RandomQuote>(randomQuoteMapper) {
-    suspend fun getRandomFlow() = safeCall {
+
+    override suspend fun getFromServer() = safeCall {
         randomQuoteMapper.map(randomQuoteApi.getRandomQuote())
     }
 
-    suspend fun getOfflineRandomFlow() = safeCall {
+    override suspend fun getOffline() = safeCall {
         randomQuoteMapper.map(randomQuoteDao.getRandomQuotes())
     }
 }

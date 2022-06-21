@@ -21,7 +21,7 @@ import retrofit2.Retrofit
 object MainViewModelTestBase : TestBase() {
     var mainShowCase: MainUseCase = Mockito.spy(MainUseCase(randomQuoteRepository))
     var mainViewModel: MainViewModel = Mockito.spy(MainViewModel(mainShowCase))
-    var testDataRandomQuote = RandomQuote("", "", "", "", "", "", 10, listOf())
+    var testDataRandomQuote = RandomQuote("", "", "", "")
 
 }
 
