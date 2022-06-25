@@ -37,4 +37,7 @@ interface RandomQuoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<RandomQuoteDTO>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(randomQuoteDTO: RandomQuoteDTO)
 }

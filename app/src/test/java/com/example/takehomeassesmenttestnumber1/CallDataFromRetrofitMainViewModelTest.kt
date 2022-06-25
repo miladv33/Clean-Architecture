@@ -1,7 +1,7 @@
 package com.example.takehomeassesmenttestnumber1
 
 import app.cash.turbine.test
-import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainShowCase
+import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainUseCase
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainViewModel
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.testDataRandomQuote
 import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteApi
@@ -24,7 +24,7 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
         //act
         mainViewModel.getQuotesFlow()
         //assert
-        verify(mainShowCase).executeQuotesFlow()
+        verify(mainUseCase).executeQuotesFlow()
         verify(randomQuoteRepository).getFromServer()
         verify(randomQuoteApi).getRandomQuote()
     }
@@ -51,7 +51,7 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
         //act
         mainViewModel.getQuotesFlow()
         //assert
-        mainShowCase.executeQuotesFlow().test {
+        mainUseCase.executeQuotesFlow().test {
             val item = awaitItem()
             assertThat(item.isFailure).isTrue()
             assertThat(item.exceptionOrNull()).isEqualTo(throwable)

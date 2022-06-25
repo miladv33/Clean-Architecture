@@ -1,6 +1,7 @@
 package com.example.takehomeassesmenttestnumber1.base
 
 import android.content.Context
+import com.example.takehomeassesmenttestnumber1.data.dao.RandomQuoteDao
 import com.example.takehomeassesmenttestnumber1.data.dto.RandomQuoteDTO
 import com.example.takehomeassesmenttestnumber1.data.mapper.RandomQuoteMapper
 import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
@@ -19,7 +20,7 @@ import retrofit2.Retrofit
 object MapperTestBase {
     val context = Mockito.mock(Context::class.java)
     var provideAppDatabase = Mockito.spy(DatabaseModule.provideAppDatabase(context))
-    val randomQuoteDao = Mockito.spy(DatabaseModule.provideRandomQuoteDao(provideAppDatabase))
+    val randomQuoteDao = Mockito.mock(RandomQuoteDao::class.java)
     var retrofit: Retrofit = Mockito.spy(AppModule.provideQuotableServerRetrofit())
     var randomQuoteApi: RandomQuoteApi = Mockito.spy(retrofit.create(RandomQuoteApi::class.java))
     var randomQuoteMapper: RandomQuoteMapper = Mockito.spy(RandomQuoteMapper::class.java)

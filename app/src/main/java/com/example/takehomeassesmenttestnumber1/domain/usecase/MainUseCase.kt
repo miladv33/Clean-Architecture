@@ -1,10 +1,12 @@
 package com.example.takehomeassesmenttestnumber1.domain.usecase
 
+import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import com.example.takehomeassesmenttestnumber1.data.repository.RandomQuoteRepository
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @Module
@@ -13,12 +15,13 @@ class MainUseCase @Inject constructor(
     private var randomQuoteRepository: RandomQuoteRepository
 ) {
 
-    /**
-     *  todo change this methode to return safeCall instead of flow
-     * @return Flow<RandomQuote>
-     */
+
     fun executeQuotesFlow() = flow {
         emit(randomQuoteRepository.getOffline())
         emit(randomQuoteRepository.getFromServer())
+    }
+
+    fun executeRandomQuoteInsert(testDataRandomQuote: RandomQuote) = runBlocking{
+        randomQuoteRepository.insertToDatabase(testDataRandomQuote)
     }
 }

@@ -36,4 +36,8 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+
+    fun insertRandomQuote(testDataRandomQuote: RandomQuote) {
+        mainShowCase.executeRandomQuoteInsert(testDataRandomQuote)
+    }
 }
