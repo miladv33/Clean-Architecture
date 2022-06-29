@@ -5,12 +5,17 @@ import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainU
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.mainViewModel
 import com.example.takehomeassesmenttestnumber1.base.MainViewModelTestBase.testDataRandomQuote
 import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteApi
+import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteMapper
 import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.randomQuoteRepository
+import com.example.takehomeassesmenttestnumber1.base.MapperTestBase.testDataRandomQuoteDTO
 import com.example.takehomeassesmenttestnumber1.base.TestBase
+import com.example.takehomeassesmenttestnumber1.data.enum.Error
+import com.example.takehomeassesmenttestnumber1.data.model.CustomException
 import com.example.takehomeassesmenttestnumber1.data.model.RandomQuote
 import com.google.common.truth.Truth.assertThat
 import com.jraska.livedata.TestObserver
 import org.junit.Test
+import org.mockito.Mockito
 import org.mockito.Mockito.*
 
 class CallDataFromRetrofitMainViewModelTest : TestBase() {
@@ -31,23 +36,20 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
 
     @Test
     fun `return api call as success Result`() = runJob {
-        //arrange
-        val result = Result.success(testDataRandomQuote)
-        doReturn(result).`when`(randomQuoteApi).getRandomQuote()
         //act
         val randomFlow = randomQuoteRepository.getFromServer()
         //assert
         assertThat(randomFlow.isSuccess).isEqualTo(true)
-        assertThat(randomFlow.getOrNull()).isEqualTo(testDataRandomQuote)
+        assertThat(randomFlow.getOrNull()?.content).isNotEmpty()
     }
 
 
     @Test
     fun `return api call as failure Result`() = runJob {
         //arrange
-        val throwable = Throwable("Error", null)
+        val throwable = CustomException(Error.NullObject)
         val result = Result.failure<RandomQuote>(throwable)
-        doReturn(result).`when`(randomQuoteApi).getRandomQuote()
+        `when`(randomQuoteMapper.map(testDataRandomQuoteDTO)).thenReturn(result)
         //act
         mainViewModel.getQuotesFlow()
         //assert
@@ -57,21 +59,6 @@ class CallDataFromRetrofitMainViewModelTest : TestBase() {
             assertThat(item.exceptionOrNull()).isEqualTo(throwable)
             cancelAndConsumeRemainingEvents()
         }
-        TestObserver.test(mainViewModel.randomQuoteErrorLiveData)
-            .assertHasValue()
-            .assertValue(throwable)
-    }
-
-    @Test
-    fun `change live data value `() = runJob {
-        //arrange
-        doReturn(testDataRandomQuote).`when`(randomQuoteApi).getRandomQuote()
-        //act
-        mainViewModel.getQuotesFlow()
-        //assert
-        TestObserver.test(mainViewModel.randomQuoteLiveData)
-            .assertHasValue()
-            .assertValue(testDataRandomQuote)
     }
 
 

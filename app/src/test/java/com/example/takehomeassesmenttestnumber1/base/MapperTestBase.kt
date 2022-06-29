@@ -23,7 +23,7 @@ object MapperTestBase {
     val randomQuoteDao = Mockito.mock(RandomQuoteDao::class.java)
     var retrofit: Retrofit = Mockito.spy(AppModule.provideQuotableServerRetrofit())
     var randomQuoteApi: RandomQuoteApi = Mockito.spy(retrofit.create(RandomQuoteApi::class.java))
-    var randomQuoteMapper: RandomQuoteMapper = Mockito.spy(RandomQuoteMapper::class.java)
+    var randomQuoteMapper: RandomQuoteMapper = Mockito.spy(RandomQuoteMapper())
     var randomQuoteRepository: RandomQuoteRepository = Mockito.spy(RandomQuoteRepository(randomQuoteApi, randomQuoteDao,randomQuoteMapper))
     var testDataRandomQuoteDTO :RandomQuoteDTO? = RandomQuoteDTO("", "", "", "", "", "", 10, listOf())
 }
