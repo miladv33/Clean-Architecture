@@ -1,8 +1,10 @@
 package com.example.quotes.data.repository.base
 
-import com.example.quotes.data.mapper.Mapper
+import com.example.quotes.data.mapper.base.Mapper
+import com.example.quotes.data.model.Model
 
-abstract class BaseRepository<T>(val mapper: Mapper<*, T>) {
+
+abstract class BaseRepository<T : Model>(val mapper: Mapper<*, T>) {
     suspend fun safeCall(call: suspend () -> Result<T>): Result<T> {
         return try {
             call.invoke()

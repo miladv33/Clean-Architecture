@@ -9,7 +9,7 @@ data class RandomQuote(
     val length: Int = -1,
     val tags: Tags? = null,
     val id: Int = 0
-){
+):Model(){
     data class Tags(
         val tags: List<String>
     )

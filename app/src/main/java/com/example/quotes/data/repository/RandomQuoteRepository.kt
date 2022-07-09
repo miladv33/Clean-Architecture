@@ -20,8 +20,9 @@ class RandomQuoteRepository @Inject constructor(
 ) : BaseRepository<RandomQuote>(randomQuoteMapper) {
 
     override suspend fun getFromServer() = safeCall {
-        val randomQuote = randomQuoteApi.getRandomQuote()
-        randomQuoteDao.insert(randomQuote)
+        val randomQuote =randomQuoteApi.getRandomQuote()
+//            Result.success(randomQuoteMapper.createModelFromDTO(randomQuoteApi.getRandomQuote()))
+//        randomQuoteDao.insert(randomQuote)
         randomQuoteMapper.map(randomQuote)
     }
 
