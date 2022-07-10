@@ -1,4 +1,4 @@
-# TakeHomeAssesmentTestNumber1
+# Clean architecture
 
 from this article: https://proandroiddev.com/enabling-cache-offline-support-on-android-using-room-4b82ae0c9c88
 Steps to follow, when a repository runs a query, are:
