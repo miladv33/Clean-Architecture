@@ -44,9 +44,10 @@ jobs:
 
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@v3
+        uses: mikepenz/release-changelog-builder-action@v3.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
 
       - name: Upload APK to Github Artifacts
         uses: actions/upload-artifact@v1
