@@ -9,6 +9,13 @@ import retrofit2.Response
 import java.io.IOException
 import java.lang.RuntimeException
 
+/**
+ * Result call
+ *
+ * @param T
+ * @property delegate
+ * @constructor Create empty Result call
+ */
 class ResultCall<T>(val delegate: Call<T>) :
     Call<Result<T>> {
 

@@ -5,16 +5,18 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
+ * Random quote d t o
  *
- * @property _id String
- * @property author String
- * @property authorSlug String
- * @property content String
- * @property dateAdded String
- * @property dateModified String
- * @property length Int
- * @property tags List<String>
- * @constructor
+ * @property _id
+ * @property author
+ * @property authorSlug
+ * @property content
+ * @property dateAdded
+ * @property dateModified
+ * @property length
+ * @property tags
+ * @property id
+ * @constructor Create empty Random quote d t o
  */
 @Entity(tableName = "randomQuote")
 data class RandomQuoteDTO(

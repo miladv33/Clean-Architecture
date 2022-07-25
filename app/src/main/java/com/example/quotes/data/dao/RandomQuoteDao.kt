@@ -23,19 +23,42 @@ import androidx.room.Query
 import com.example.quotes.data.dto.RandomQuoteDTO
 
 /**
- * The Data Access Object for the Plant class.
+ * Random quote dao
+ *
+ * @constructor Create empty Random quote dao
  */
 @Dao
 interface RandomQuoteDao {
+    /**
+     * Get random quotes
+     *
+     * @return
+     */
     @Query("SELECT * FROM randomQuote ORDER BY dateAdded LIMIT 1")
     fun getRandomQuotes(): RandomQuoteDTO
 
+    /**
+     * Get random quotes
+     *
+     * @param plantId
+     * @return
+     */
     @Query("SELECT * FROM randomQuote WHERE id = :plantId")
     fun getRandomQuotes(plantId: String): RandomQuoteDTO
 
+    /**
+     * Insert all
+     *
+     * @param plants
+     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<RandomQuoteDTO>)
 
+    /**
+     * Insert
+     *
+     * @param randomQuoteDTO
+     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(randomQuoteDTO: RandomQuoteDTO)
 }

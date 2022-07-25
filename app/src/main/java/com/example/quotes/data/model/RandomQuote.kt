@@ -1,5 +1,17 @@
 package com.example.quotes.data.model
 
+/**
+ *
+ * @property _id String
+ * @property author String
+ * @property authorSlug String
+ * @property content String
+ * @property date Date?
+ * @property length Int
+ * @property tags Tags?
+ * @property id Int
+ * @constructor
+ */
 data class RandomQuote(
     val _id: String,
     val author: String,

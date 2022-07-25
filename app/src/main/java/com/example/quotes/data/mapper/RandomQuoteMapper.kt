@@ -6,6 +6,11 @@ import com.example.quotes.data.model.RandomQuote
 
 class RandomQuoteMapper : Mapper<RandomQuoteDTO, RandomQuote> {
 
+    /**
+     * @see Mapper.convertModelToDTO
+     * @param model RandomQuote
+     * @return RandomQuoteDTO
+     */
     override fun convertModelToDTO(model: RandomQuote): RandomQuoteDTO {
         val randomQuoteDTO = with(model) {
             RandomQuoteDTO(
@@ -22,6 +27,11 @@ class RandomQuoteMapper : Mapper<RandomQuoteDTO, RandomQuote> {
         return randomQuoteDTO
     }
 
+    /**
+     * @see Mapper.createModelFromDTO
+     * @param input RandomQuoteDTO
+     * @return RandomQuote
+     */
     override fun createModelFromDTO(input: RandomQuoteDTO): RandomQuote {
         var randomQuote: RandomQuote
         with(input) {

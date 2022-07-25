@@ -18,6 +18,11 @@ import com.example.quotes.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+/**
+ * Main activity
+ *
+ * @constructor Create empty Main activity
+ */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val mainViewModel: MainViewModel by viewModels()
@@ -40,6 +45,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Greeting
+ *
+ * @param viewModel
+ */
 @Composable
 fun Greeting(viewModel: MainViewModel) {
     val quote = viewModel.randomQuoteLiveData.observeAsState()
@@ -55,6 +65,11 @@ fun Greeting(viewModel: MainViewModel) {
     }
 }
 
+/**
+ * Dialog
+ *
+ * @param mainViewModel
+ */
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun dialog(mainViewModel: MainViewModel) {

@@ -1,5 +1,8 @@
 package com.example.quotes.data.model
 
- open class Model{
-
-}
+/**
+ * THe base class Model
+ *
+ * @constructor Create empty Model
+ */
+ open class Model

@@ -28,6 +28,10 @@ import com.google.gson.stream.JsonReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ *
+ * @constructor
+ */
 class SeedDatabaseWorker(
         context: Context,
         workerParams: WorkerParameters

@@ -12,6 +12,12 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * Main view model
+ *
+ * @property mainShowCase
+ * @constructor Create empty Main view model
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val mainShowCase: MainUseCase
@@ -20,6 +26,10 @@ class MainViewModel @Inject constructor(
     private val _randomQuoteLiveData = MutableLiveData<RandomQuote>()
     val randomQuoteLiveData: LiveData<RandomQuote> = _randomQuoteLiveData
 
+    /**
+     * Get quotes flow
+     *
+     */
     fun getQuotesFlow() {
         viewModelScope.launch {
             mainShowCase.executeQuotesFlow().flowOn(Dispatchers.IO).collect {
@@ -33,6 +43,11 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Insert random quote
+     *
+     * @param testDataRandomQuote
+     */
     fun insertRandomQuote(testDataRandomQuote: RandomQuote) {
         mainShowCase.executeRandomQuoteInsert(testDataRandomQuote)
     }

@@ -6,6 +6,11 @@ import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
+/**
+ * Result call adapter factory
+ *
+ * @constructor Create empty Result call adapter factory
+ */
 class ResultCallAdapterFactory : CallAdapter.Factory() {
 
 
