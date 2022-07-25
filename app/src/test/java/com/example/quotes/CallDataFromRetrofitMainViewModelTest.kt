@@ -20,18 +20,6 @@ import org.mockito.Mockito.*
 class CallDataFromRetrofitMainViewModelTest : TestBase() {
 
 
-    @Test
-    fun `verify the flow of data`() = runJob {
-        //arrange
-        val result = Result.success(testDataRandomQuote)
-        doReturn(result).`when`(randomQuoteApi).getRandomQuote()
-        //act
-        mainViewModel.getQuotesFlow()
-        //assert
-        verify(mainUseCase).executeQuotesFlow()
-        verify(randomQuoteRepository).getFromServer()
-        verify(randomQuoteApi).getRandomQuote()
-    }
 
     @Test
     fun `return api call as success Result`() = runJob {
