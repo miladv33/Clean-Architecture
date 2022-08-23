@@ -14,7 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.quotes.presentation.viewmodel.MainViewModel
+import com.example.quotes.ui.firstpage.firstPage
+import com.example.quotes.ui.secondpage.SecondPage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +31,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val mainViewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycleScope.launch {
@@ -36,31 +42,25 @@ class MainActivity : ComponentActivity() {
         }
 //        mainViewModel.getDashboardDataCombined()
         setContent {
+            val navController = rememberNavController()
+
             dialog(mainViewModel)
-            // A surface container using the 'background' color from the theme
-            Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                Greeting(mainViewModel)
+            NavHost(navController = navController, startDestination = "firstpage") {
+                composable("firstpage") {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colors.background
+                    ) {
+                        firstPage(mainViewModel) { navController.navigate("secondpage") }
+                    }
+                }
+                composable("secondpage") {
+                    SecondPage()
+                }
+                /*...*/
             }
-        }
-    }
-}
+            // A surface container using the 'background' color from the theme
 
-/**
- * Greeting
- *
- * @param viewModel
- */
-@Composable
-fun Greeting(viewModel: MainViewModel) {
-    val quote = viewModel.randomQuoteLiveData.observeAsState()
-    Column(modifier = Modifier.padding(10.dp)) {
-        Text(text = " From ${quote.value?.author ?: ""}: ")
-        Text(modifier = Modifier.padding(start = 15.dp), text = quote.value?.content ?: "")
-        Button(modifier = Modifier.padding(top = 15.dp), onClick = {
-
-            viewModel.getQuotesFlow()
-        }) {
-            Text(text = "Another Quote")
         }
     }
 }
@@ -82,7 +82,11 @@ fun dialog(mainViewModel: MainViewModel) {
                 mainViewModel.hideDialog()
             },
             title = {
-                Text(modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center, text = text ?: "")
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    text = text ?: ""
+                )
             },
             buttons = {
                 Row(
