@@ -21,6 +21,8 @@ buildscript {
         androidx_arch_core_testing_version = '2.1.0'
         roomVersion = '2.4.2'
         workVersion = '2.7.1'
+        nav_version = "2.5.1"
+
 
     }
     dependencies {
