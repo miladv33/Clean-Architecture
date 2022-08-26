@@ -112,6 +112,8 @@ dependencies {
     //compose navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha16'
+
 
 
 }
